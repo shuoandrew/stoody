@@ -1,0 +1,649 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(backgrounds/minecraft.gif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+
+
+.video-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: var(--primary-color) url('./https://traversymedia.com/downloads/cover.jpg') no-repeat center
+		center/cover;
+}
+
+.video-container video {
+	min-width: 100%;
+	min-height: 100%;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
+
+.video-container:after {
+	content: '';
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+}
+
+.content {
+	z-index: 2;
+}
+    
+iframe {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+}
+
+.sidepanel {
+  position:relative;
+  height:95vh;
+  background-color:#01848f;
+  width:10%;
+  min-width:100px;
+  margin-left:0;
+  top: 20px; 
+  z-index:2;
+  font-size:1.5em;
+  left: 10px;
+  line-height:1.5em;
+  color:#f1f1f2;
+  font-family:Helvetica;
+  text-align:center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.sidepanel:before {
+  content:'';
+  position:absolute;
+  height:100vh;
+  width:10px;
+  top:0;
+  left:100%;
+  z-index:1;
+}
+.sidepanel span {
+  position:relative;
+  display:block;
+  width:calc(100% - 2em);
+  min-width:100px;  
+  padding:1em;
+  background-color:#01848f;
+}
+.line {
+  height:1px;
+  width:calc(100% - 44px);
+  background-color:#E9D985;
+  margin:0 22px;
+}
+.circle {
+  position:absolute;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:16px;
+  background-color:#CCE1F2;
+  color:#f1f1f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  top:calc(50% - 22px);
+  left:calc(100% - 22px);
+  z-index:3;
+  cursor:pointer;
+}
+.fa-chevron-left {
+  margin-right:5px;
+}
+.fa-chevron-right {
+  margin-left:5px;
+}
+.hide {
+  display:none;
+}
+
+
+/** DIVS FOR TODO LIST AND POMO TIMER **/
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  right:50px;
+  top  : 50px;
+  text-align: center;
+  padding: 1px;
+}
+
+.header h2{
+  font-size: 28px;
+  padding: 10px;
+}
+#mydivheader {
+  padding: 2px;
+  cursor: move;
+  z-index: 10;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  font-family: 'Acme', sans-serif;
+  font-size: 12px;
+  width: 400px;
+  height: 160px;
+  /* From https://css.glass */
+  background: rgba(17, 17, 17, 0.17);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#mydiv2 {
+  position: absolute;
+  z-index: 9;
+  right:50px;
+  top  : 50px;
+  text-align: center;
+  padding: 1px;
+}
+
+#mydivheader2 {
+  padding: 2px;
+  cursor: move;
+  z-index: 10;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  font-family: 'Acme', sans-serif;
+  font-size: 12px;
+  width: 300px;
+  height: 400px;
+  overflow-y: auto;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.timer {
+  color: #fff;
+  text-align: center;
+  width: 20rem;
+  height: 20rem;
+  border: 5px solid #fff;
+  border-radius: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 0;
+}
+
+.fa-play,
+.fa-redo-alt {
+  color: #e3f6f5;
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 1.55rem;
+}
+
+.fa-play:hover,
+.fa-redo-alt:hover {
+  color: #bae8e8;
+  border: 3px solid #bae8e8;
+  transition: 0.2s ease;
+}
+.fa-pause{
+  color: #e3f6f5;
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 1.55rem;
+}
+.fa-pause:hover{
+  color: #bae8e8;
+  border: 3px solid #bae8e8;
+  transition: 0.2s ease;
+}
+
+
+/* CSS */
+.button-86 {
+  all: unset;
+  width: 70px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  
+  left: 15px;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 25px;
+  margin-bottom: 75px;
+}
+
+.button-86::after,
+.button-86::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+}
+
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+.dropdown:hover .dropdownContents {
+  display: block;
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 64px;
+  left: 100%;
+}
+
+.dropdownContents {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 100%;
+  
+  min-width: 160px;
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dropdownContents button {
+  margin: 5px 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropDownButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.button-87 {
+  all: unset;
+  width: 80px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: center;
+  
+  left: 15px;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.button-87::after,
+.button-87::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+}
+
+.button-87::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.button-87::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-87:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-87:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-87:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5af19, #f12711);
+}
+
+::selection {
+  color: #fff;
+  background: #f12711;
+}
+
+.wrapper {
+  max-width: 405px;
+  background: #fff;
+  margin: 137px auto;
+  border-radius: 7px;
+  padding: 28px 0 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+  position: relative;
+  height: 52px;
+  padding: 0 25px;
+}
+
+.task-input ion-icon {
+  position: absolute;
+  top: 50%;
+  color: #999;
+  font-size: 25px;
+  transform: translate(17px, -50%);
+}
+
+.task-input input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 0 20px 0 53px;
+  border: 1px solid #999;
+}
+
+.task-input input:focus,
+.task-input input.active {
+  padding-left: 52px;
+  border: 2px solid #f12711;
+}
+
+.task-input input::placeholder {
+  color: #bfbfbf;
+}
+
+.controls,
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls {
+  padding: 18px 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.filters span {
+  margin: 0 8px;
+  font-size: 17px;
+  color: #444444;
+  cursor: pointer;
+}
+
+.filters span:first-child {
+  margin-left: 0;
+}
+
+.filters span.active {
+  color: #f12711;
+}
+
+.clear-btn {
+  border: none;
+  opacity: 0.6;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 7px 13px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  pointer-events: none;
+  transition: transform 0.25s ease;
+  background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+}
+
+.clear-btn.active {
+  opacity: 0.9;
+  pointer-events: auto;
+}
+
+.clear-btn:active {
+  transform: scale(0.93);
+}
+
+
+/** todo list **/
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 14px;
+  transition: 0.2s;
+  color:#000000;
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  z-index: 1000;
+  height: 50px
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  height: 50px;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
